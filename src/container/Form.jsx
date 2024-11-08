@@ -1,35 +1,26 @@
 
-import React, { useState } from 'react'
+import React, { useCallback, useState } from "react";
 
-const Form = () => {
+const Form = () =>{
+   const[Number,setNumber]=useState(0)
 
-   const[UserName,setUserName]=useState(" ")
-
-   const Username = (e) =>{
-      setUserName(e.target.value)
+   const Increse = () =>{
+      setNumber(Number + 1)
    }
-
-
-   const [NewUserDeatails,setNewUserDetails]=useState('')
-
-   const Userdetails = () =>{
-      setNewUserDetails(UserName)
+   const Decrse = () =>{
+      setNumber(Number -1)
    }
-
    const Reset = () =>{
-      setNewUserDetails('')
+      setNumber("")
    }
-
-  return (
-    <div className='Container'>  
-      <h2>{NewUserDeatails}</h2>
-
-      <input type="text" placeholder='Enter Details'  onChange={Username}/>
-      <button onClick={Userdetails}>Submit</button>
-      <button onClick={Reset}>Reset</button>
-
-    </div>
-  )
+   return(
+        <section>
+         <h1>Counter App</h1>
+         <h1>{Number}</h1>
+         <button onClick={Increse}>Increse</button>
+         <button onClick={Decrse}>Decrese</button>
+         <button onClick={Reset}>Reset</button>
+        </section>
+   )
 }
-
-export default Form
+export default Form;
